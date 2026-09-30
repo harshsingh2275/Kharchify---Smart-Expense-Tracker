@@ -1,0 +1,25 @@
+# Virtual environment & Python cache
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Environment & runtime data
+.env
+data/
+logs/
+
+# Testing & IDE
+.pytest_cache/
+.idea/
+.vscode/
+
+# Local planning and documentation
+AGENTS.md
+TASK.md
+ARCHITECTURE.md
+DATABASE.md
+API.md
+TESTING.md
+DEPLOYMENT.md
+README.md
