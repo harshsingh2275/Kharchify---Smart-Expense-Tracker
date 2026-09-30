@@ -2,10 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Kharchify — Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kharchify - Expense Tracker</title>
+    <meta name="description" content="Track your daily expenses by category with Kharchify.">
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
-<body>
-    <h1>Kharchify</h1>
-    <p>Login/Register page — coming soon.</p>
+<body class="auth-page">
+    <div class="auth-card">
+        <p class="app-title">Kharchify</p>
+        <p class="app-subtitle">Personal expense tracker</p>
+
+        <div class="form-toggle" role="tablist">
+            <button id="btn-show-login" class="active" role="tab" aria-selected="true">Login</button>
+            <button id="btn-show-register" role="tab" aria-selected="false">Register</button>
+        </div>
+
+        <div id="message-area" class="message-area" aria-live="polite"></div>
+
+        <!-- Login form -->
+        <form id="login-form" novalidate>
+            <div class="form-group">
+                <label for="login-username">Username</label>
+                <input type="text" id="login-username" name="username" autocomplete="username" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" name="password" autocomplete="current-password" required>
+            </div>
+            <button type="submit" id="login-submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+
+        <!-- Register form -->
+        <form id="register-form" style="display:none;" novalidate>
+            <div class="form-group">
+                <label for="reg-username">Username</label>
+                <input type="text" id="reg-username" name="username" autocomplete="username" required>
+            </div>
+            <div class="form-group">
+                <label for="reg-password">Password</label>
+                <input type="password" id="reg-password" name="password" autocomplete="new-password" required>
+            </div>
+            <div class="form-group">
+                <label for="reg-confirm">Confirm password</label>
+                <input type="password" id="reg-confirm" name="confirm" autocomplete="new-password" required>
+            </div>
+            <button type="submit" id="register-submit" class="btn btn-primary btn-block">Create account</button>
+        </form>
+    </div>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/auth.js"></script>
 </body>
 </html>

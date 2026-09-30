@@ -1,0 +1,485 @@
+/* Kharchify - Expense Tracker styles */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f2f4f7;
+    color: #1a1a1a;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* ─── Layout ──────────────────────────────────────────────────── */
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    padding-bottom: 48px;
+}
+
+/* ─── Header ──────────────────────────────────────────────────── */
+
+.site-header {
+    background: #fff;
+    border-bottom: 1px solid #dde1e7;
+    padding: 12px 0;
+    margin-bottom: 32px;
+}
+
+.site-header .container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.site-header h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    flex: 1;
+}
+
+.site-header .user-greeting {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* ─── Cards ───────────────────────────────────────────────────── */
+
+.card {
+    background: #fff;
+    border: 1px solid #dde1e7;
+    border-radius: 6px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.card h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+}
+
+.card h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+/* ─── Summary cards ───────────────────────────────────────────── */
+
+.summary-cards {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.summary-card {
+    flex: 1;
+    min-width: 160px;
+    background: #f8f9fb;
+    border: 1px solid #dde1e7;
+    border-radius: 6px;
+    padding: 16px 20px;
+}
+
+.summary-card .stat-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* ─── Forms ───────────────────────────────────────────────────── */
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #c8cdd5;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: #1a1a1a;
+    background: #fff;
+    transition: border-color 0.15s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2a6dd9;
+    box-shadow: 0 0 0 2px rgba(42, 109, 217, 0.12);
+}
+
+.form-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 140px;
+}
+
+/* ─── Auth page specific ──────────────────────────────────────── */
+
+.auth-page {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 48px 16px;
+    background: #f2f4f7;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 400px;
+    background: #fff;
+    border: 1px solid #dde1e7;
+    border-radius: 8px;
+    padding: 32px;
+}
+
+.auth-card .app-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+}
+
+.auth-card .app-subtitle {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 28px;
+}
+
+.form-toggle {
+    display: flex;
+    gap: 0;
+    margin-bottom: 24px;
+    border: 1px solid #dde1e7;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.form-toggle button {
+    flex: 1;
+    padding: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: none;
+    background: #fff;
+    cursor: pointer;
+    color: #555;
+    transition: background 0.15s, color 0.15s;
+}
+
+.form-toggle button.active {
+    background: #2a6dd9;
+    color: #fff;
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────── */
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: center;
+    transition: background 0.15s, opacity 0.15s;
+    white-space: nowrap;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background: #2a6dd9;
+    color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #2460c0;
+}
+
+.btn-danger {
+    background: #d93025;
+    color: #fff;
+}
+
+.btn-danger:hover:not(:disabled) {
+    background: #c12b20;
+}
+
+.btn-secondary {
+    background: #e8eaed;
+    color: #333;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: #d8dade;
+}
+
+.btn-sm {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+}
+
+.btn-block {
+    width: 100%;
+    display: block;
+}
+
+/* ─── Tables ──────────────────────────────────────────────────── */
+
+.table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+th {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 2px solid #dde1e7;
+    font-weight: 600;
+    color: #444;
+    white-space: nowrap;
+}
+
+td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #edf0f3;
+    color: #1a1a1a;
+    vertical-align: middle;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background: #f8f9fb;
+}
+
+.amount-cell {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.actions-cell {
+    white-space: nowrap;
+    display: flex;
+    gap: 6px;
+}
+
+/* ─── Filters / pagination ────────────────────────────────────── */
+
+.filter-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.filter-row .form-group {
+    margin-bottom: 0;
+    min-width: 120px;
+}
+
+.filter-row label {
+    font-size: 0.8rem;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    font-size: 0.875rem;
+    color: #555;
+}
+
+/* ─── Messages ────────────────────────────────────────────────── */
+
+.message-area {
+    margin-bottom: 16px;
+    min-height: 20px;
+}
+
+.message-error {
+    background: #fde8e7;
+    border: 1px solid #f5aca8;
+    color: #8b1a15;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 0.875rem;
+}
+
+.message-success {
+    background: #e6f4ea;
+    border: 1px solid #a8d5b2;
+    color: #1a5c2a;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 0.875rem;
+}
+
+/* ─── Utilities ───────────────────────────────────────────────── */
+
+.text-muted {
+    color: #777;
+    font-size: 0.875rem;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.section-header h2 {
+    margin-bottom: 0;
+}
+
+.month-picker-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.month-picker-row label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.month-picker-row input[type="month"] {
+    padding: 6px 8px;
+    border: 1px solid #c8cdd5;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-family: inherit;
+}
+
+.form-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 6px;
+    flex-wrap: wrap;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+    .auth-card {
+        padding: 24px 16px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .summary-cards {
+        flex-direction: column;
+    }
+
+    .summary-card {
+        min-width: unset;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-row .form-group {
+        min-width: unset;
+    }
+
+    .filter-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-row .form-group {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .filter-row .btn {
+        width: 100%;
+    }
+
+    .btn-block-sm {
+        width: 100%;
+        display: block;
+    }
+
+    .site-header .container {
+        flex-wrap: wrap;
+    }
+
+    .pagination {
+        flex-wrap: wrap;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+    }
+}

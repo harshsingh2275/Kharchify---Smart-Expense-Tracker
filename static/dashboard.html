@@ -2,10 +2,149 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Kharchify — Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kharchify - Dashboard</title>
+    <meta name="description" content="View and manage your monthly expenses.">
+    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
-<body>
-    <h1>Kharchify Dashboard</h1>
-    <p>Dashboard page — coming soon.</p>
+<body class="page-wrapper">
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <h1>Kharchify</h1>
+            <span id="user-greeting" class="user-greeting"></span>
+            <button id="btn-logout" class="btn btn-secondary btn-sm">Logout</button>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Global message area -->
+        <div id="message-area" class="message-area" aria-live="polite"></div>
+
+        <!-- Monthly Summary -->
+        <section class="card" aria-labelledby="summary-heading">
+            <div class="section-header">
+                <h2 id="summary-heading">Monthly Summary</h2>
+            </div>
+            <div class="month-picker-row">
+                <label for="month-picker">Month</label>
+                <input type="month" id="month-picker">
+            </div>
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <h3>Total Spent</h3>
+                    <p id="stat-total" class="stat-value">-</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Expenses</h3>
+                    <p id="stat-count" class="stat-value">-</p>
+                </div>
+            </div>
+            <div class="table-wrap">
+                <table id="summary-table" aria-label="Category breakdown">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th class="amount-cell">Count</th>
+                            <th class="amount-cell">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="summary-tbody"></tbody>
+                </table>
+            </div>
+            <p id="summary-empty" class="text-muted" style="display:none;">No expenses for this month.</p>
+        </section>
+
+        <!-- Add / Edit Expense Form -->
+        <section class="card" aria-labelledby="form-heading">
+            <h2 id="form-heading">Add Expense</h2>
+            <form id="expense-form" novalidate>
+                <input type="hidden" id="edit-expense-id">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="field-title">Title</label>
+                        <input type="text" id="field-title" maxlength="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="field-amount">Amount</label>
+                        <input type="number" id="field-amount" min="0.01" step="0.01" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="field-category">Category</label>
+                        <select id="field-category" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="field-date">Date</label>
+                        <input type="date" id="field-date" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="field-note">Note <span class="text-muted">(optional)</span></label>
+                    <input type="text" id="field-note" maxlength="300">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" id="form-submit" class="btn btn-primary">Add expense</button>
+                    <button type="button" id="btn-cancel-edit" class="btn btn-secondary" style="display:none;">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Expense List -->
+        <section class="card" aria-labelledby="list-heading">
+            <h2 id="list-heading">Expenses</h2>
+
+            <!-- Filters -->
+            <div class="filter-row" role="search">
+                <div class="form-group">
+                    <label for="filter-category">Category</label>
+                    <select id="filter-category">
+                        <option value="">All</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filter-from">From</label>
+                    <input type="date" id="filter-from">
+                </div>
+                <div class="form-group">
+                    <label for="filter-to">To</label>
+                    <input type="date" id="filter-to">
+                </div>
+                <button id="btn-apply-filters" class="btn btn-primary btn-sm">Apply</button>
+                <button id="btn-clear-filters" class="btn btn-secondary btn-sm">Clear</button>
+            </div>
+
+            <!-- Table -->
+            <div class="table-wrap">
+                <table aria-label="Expense list">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th class="amount-cell">Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expense-tbody"></tbody>
+                </table>
+            </div>
+            <p id="list-empty" class="text-muted" style="display:none;">No expenses found.</p>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button id="btn-prev" class="btn btn-secondary btn-sm">Previous</button>
+                <span id="page-info">Page 1 of 1</span>
+                <button id="btn-next" class="btn btn-secondary btn-sm">Next</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/dashboard.js"></script>
 </body>
 </html>
