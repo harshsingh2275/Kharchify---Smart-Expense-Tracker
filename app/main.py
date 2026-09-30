@@ -12,7 +12,7 @@ from app.config import settings
 from app.database import init_db
 from app.exceptions import register_exception_handlers
 from app.logging_config import setup_logging
-from app.routers import health, categories, expenses, summary
+from app.routers import auth, health, categories, expenses, summary
 
 logger = logging.getLogger(__name__)
 
@@ -50,6 +50,7 @@ async def log_requests(request: Request, call_next):
 
 # API routers
 app.include_router(health.router, prefix="/api")
+app.include_router(auth.router, prefix="/api")
 app.include_router(categories.router, prefix="/api")
 app.include_router(expenses.router, prefix="/api")
 app.include_router(summary.router, prefix="/api")
